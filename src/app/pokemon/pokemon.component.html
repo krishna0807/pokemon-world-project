@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-image">
+    <img [src]="pokemon?.sprite">
+  </div>
+  <div class="card-content">
+    
+      <button type="button" (click)="showSelected(pokemon?.name)">Select Pokemon</button>
+      <button type="button" [routerLink]="['/detail', pokemon?.id]">Details</button>
+  </div>
+</div>

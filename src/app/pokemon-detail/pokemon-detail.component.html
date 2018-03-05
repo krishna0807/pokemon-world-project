@@ -1,0 +1,55 @@
+<div class="container">
+  <nav>
+    <ul>
+      <li><a (click)="gotoHashtag('#Name')">Name</a></li>
+      <li><a (click)="gotoHashtag('#Ability')">Abilities</a></li>
+      <li><a (click)="gotoHashtag('#Attack')">Attack</a></li>
+      <li><a (click)="gotoHashtag('#Defense')">Defense</a></li>
+      <li><a (click)="gotoHashtag('#Evolutions')">Evolutions</a></li>
+      <li><a (click)="goBack()">Back</a></li>
+    </ul>
+  </nav>
+  
+  <article id="Name">
+      <h1>Name</h1>
+      <div *ngIf="name">{{name}}</div>
+  </article>
+  <article id="Ability">
+    <h1>Ability</h1>
+      <div class="card-panel blue-grey lighten-1" *ngIf="abilities">        
+          <ul>
+            <li *ngFor='let ability of abilities'>{{ability.ability.name}}</li>
+          </ul>
+      </div>
+  </article>
+  <article id="Attack">
+    <h1>Attack</h1>
+       <div class="card-panel blue-grey lighten-1" *ngIf="stats">
+           <div *ngFor='let stat of stats'>
+               <div *ngIf="stats && stat.stat.name =='attack'">
+                    <div *ngIf="stat.effort">Effort:{{stat.effort}}</div>
+                   <div *ngIf="stat.base_stat">Base:{{stat.base_stat}}</div>                 
+               </div>
+           </div>
+      </div>
+  </article>
+  <article id="Defense">
+    <h1>Defense</h1>
+      <div class="card-panel blue-grey lighten-1" *ngIf="stats">
+           <div *ngFor='let stat of stats'>
+               <div *ngIf="stats && stat.stat.name =='defense'">
+                   <div *ngIf="stat.effort">Effort:{{stat.effort}}</div>
+                   <div *ngIf="stat.base_stat">Base:{{stat.base_stat}}</div>                 
+               </div>
+           </div>
+      </div>
+  </article>
+  <article id="Evolutions">
+    <h1>Evolutions</h1>
+      <div class="card-panel blue-grey lighten-1" *ngIf="evolution">
+                   <div *ngIf="evolution.is_baby">Is Baby:{{evolution.is_baby}}</div>
+                   <div *ngIf="evolution.species && evolution.species.name">Name:{{evolution.species.name}}</div>
+      </div>
+  </article>
+  
+  </div>
